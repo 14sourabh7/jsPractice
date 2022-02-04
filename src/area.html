@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        margin: 5% auto;
+      }
+      #wrapper > button {
+        width: 17%;
+        padding: 12px;
+        text-align: center;
+        margin-left: 45%;
+        border-radius: 10px;
+        font-weight: bold;
+        background-color: rgb(197, 197, 197);
+      }
+      .block {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: auto;
+      }
+      .block > p {
+        font-size: larger;
+      }
+      .block > input {
+        margin: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: large;
+      }
+      .block_res {
+        font-size: larger;
+        margin: 10px 32%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="block">
+        <p>Length of Rectangle</p>
+        <input type="text" id="length" value="1" />
+        <p>mtr</p>
+      </div>
+      <div class="block">
+        <p>width of Rectangle</p>
+        <input type="text" id="width" value="1" />
+        <p>mtr</p>
+      </div>
+
+      <button onclick="calc()">Calculate area and perimeter</button>
+
+      <div class="block_res">Area is <span id="area"></span> sq. mtr.</div>
+      <div class="block_res">
+        perimeter is <span id="perimeter"> </span> mtr
+      </div>
+    </div>
+
+    <script>
+      function calc() {
+        var length = document.getElementById("length").value;
+        var width = document.getElementById("width").value;
+
+        document.getElementById("area").innerHTML = length * width;
+        document.getElementById("perimeter").innerHTML =
+          (Number(length) + Number(width)) * 2;
+      }
+    </script>
+  </body>
+</html>

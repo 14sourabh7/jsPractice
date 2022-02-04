@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        display: flex;
+        flex-direction: column;
+
+        width: 60%;
+        margin: 10% auto;
+      }
+      #wrapper > button {
+        width: 46%;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: large;
+      }
+      .radio {
+        display: flex;
+        align-items: center;
+        width: 40%;
+        margin: auto;
+        font-size: large;
+      }
+      .radio > p {
+        margin-left: 20px;
+      }
+      #hour {
+        width: 40%;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: large;
+      }
+      #result {
+        margin: 0px auto 5px auto;
+        font-size: large;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <input type="text" id="hour" value="1" />
+      <div class="radio">
+        <input type="radio" id="min" value="60" name="time" checked />
+        <p>hours to minutes</p>
+      </div>
+      <div class="radio">
+        <input type="radio" id="sec" value="3600" name="time" />
+        <p>hours to seconds</p>
+      </div>
+      <p id="result"></p>
+      <button onclick="calc()">Convert</button>
+    </div>
+
+    <script>
+      function calc() {
+        var hrs = document.getElementById("hour").value;
+
+        var min = document.getElementById("min").checked;
+        var sec = document.getElementById("sec");
+        let ans;
+        if (min) {
+          ans = hrs * 60;
+        } else {
+          ans = hrs * 3600;
+        }
+
+        document.getElementById("result").innerHTML = `${hrs} ${
+          hrs > 1 ? "hours" : "hour"
+        } = ${ans} ${min ? "minutes" : "seconds"}`;
+      }
+    </script>
+  </body>
+</html>
